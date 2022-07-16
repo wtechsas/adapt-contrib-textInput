@@ -1,0 +1,17 @@
+{
+  "name": "adapt-contrib-textInput",
+  "version": "10.0.0",
+  "framework": ">=5.19.1",
+  "homepage": "https://github.com/wtechsas/adapt-contrib-textInput",
+  "bugs": "https://github.com/wtechsas/adapt-contrib-textInput/issues",
+  "component" : "textinput",
+  "targetAttribute": "_textinput",
+  "displayName" : "Entrada de texto",
+  "description": "Un componente que permite introducir un texto basado en una pregunta.",
+  "main": "/js/adapt-contrib-textInput.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-component"
+  ],
+  "license": "GPL-3.0"
+}

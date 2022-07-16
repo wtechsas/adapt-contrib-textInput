@@ -1,0 +1,415 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "$ref": "http://localhost/plugins/content/component/model.schema",
+  "globals": {
+    "ariaRegion": {
+      "type": "string",
+      "required": true,
+      "title": "Región del componente",
+      "default": "Entrada de texto. Escriba su respuesta y luego envíela.",
+      "inputType": "Text",
+      "validators": [],
+      "translatable": true
+    }
+  },
+  "properties": {
+    "_supportedLayout": {
+      "type": "string",
+      "required": true,
+      "enum": ["full-width", "half-width", "both"],
+      "default": "both",
+      "editorOnly": true
+    },
+    "instruction": {
+      "type": "string",
+      "required": false,
+      "default": "",
+      "title": "Instrucciones",
+      "inputType": "Text",
+      "validators": [],
+      "help": "Instrucciones que se mostrarán para este componente.",
+      "translatable": true
+    },
+    "_items": {
+      "type": "array",
+      "required": true,
+      "title": "Respuestas",
+      "items": {
+        "type": "object",
+        "required": false,
+        "properties": {
+          "_answers": {
+            "type": "array",
+            "required": false,
+            "title": "Respuestas",
+            "items": {
+              "type": "string",
+              "required": true,
+              "default": "",
+              "title": "Respuesta",
+              "inputType": "Text",
+              "validators": ["required"],
+              "help": "",
+              "translatable": true
+            }
+          },
+          "prefix": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Prefijo",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Prefijo para esta respuesta",
+            "translatable": true
+          },
+          "suffix": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Sufijo",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Sufijo para esta respuesta",
+            "translatable": true
+          },
+          "placeholder": {
+            "type": "string",
+            "required": false,
+            "default": "",
+            "title": "Sugerencia",
+            "inputType": "Text",
+            "validators": [],
+            "help": "Sugerencia o valor esperado del campo de entrada",
+            "translatable": true
+          }
+        }
+      }
+    },
+    "_attempts": {
+      "type": "number",
+      "required": true,
+      "default": 1,
+      "title": "intentos",
+      "inputType": "Number",
+      "validators": ["required", "number"],
+      "help": "Cuántos intentos tiene permitido el alumno"
+    },
+    "_canShowModelAnswer": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Mostrar respuesta correcta",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "¿Permitir que se pueda ver la 'respuesta correcta' si se responde la pregunta incorrectamente?"
+    },
+    "_canShowFeedback": {
+      "type": "boolean",
+      "required": true,
+      "default": true,
+      "title": "Mostrar retroalimentación",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_canShowMarking": {
+      "type": "boolean",
+      "default": true,
+      "title": "Mostrar respuesta seleccionada",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_shouldDisplayAttempts": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Mostrar intentos",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "¿Mostrar el número de intentos restantes?"
+    },
+    "_isRandom": {
+      "type": "boolean",
+      "required": false,
+      "default": false,
+      "title": "Preguntas aleatorios",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "¿Ordenar las preguntas aleatoriamente?"
+    },
+    "_recordInteraction": {
+      "type": "boolean",
+      "required": false,
+      "default": true,
+      "title": "Guardar interacción",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "Si está deshabilitado, el registro de las respuestas del usuario a esta pregunta en cmi.interactions en el LMS se deshabilitará solo para este componente."
+    },
+    "_questionWeight": {
+      "type": "number",
+      "required": false,
+      "default": 1,
+      "title": "Puntuación de la pregunta",
+      "inputType": "Number",
+      "validators": ["number"],
+      "help": "cuantos puntos vale esta pregunta"
+    },
+    "_allowsAnyCase": {
+      "type": "boolean",
+      "required": true,
+      "default": false,
+      "title": "Permitir respuestas sin importar mayusculas",
+      "inputType": "Checkbox",
+      "validators": [],
+      "help": "¿La verificación de la(s) respuesta(s) del usuario debe ser sensible a mayúsculas o minúsculas?"
+    },
+    "_allowsPunctuation": {
+      "type": "boolean",
+      "required": true,
+      "default": false,
+      "title": "Permitir signos de puntuación",
+      "inputType": "Checkbox",
+      "validators": []
+    },
+    "_feedback": {
+      "type": "object",
+      "required": false,
+      "title": "Retroalimentación",
+      "properties": {
+        "title": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Título de la retroalimentación",
+          "inputType": "Text",
+          "validators": [],
+          "help": "Si se deja en blanco en su lugar se muestra el título del componente.",
+          "translatable": true
+        },
+        "correct": {
+          "type": "string",
+          "required": false,
+          "default": "",
+          "title": "Retroalimentación - Respuesta correcta",
+          "inputType": "TextArea",
+          "validators": [],
+          "help": "Retroalimentación de respuesta correcta para esta pregunta",
+          "translatable": true
+        },
+        "_incorrect": {
+          "type": "object",
+          "required": false,
+          "title": "Retroalimentación - Respuesta incorrecta",
+          "properties": {
+            "final": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Intento final incorrecto",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Retroalimentación de respuesta incorrecta para el intento final",
+              "translatable": true
+            },
+            "notFinal": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Intento final parcial",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Retroalimentación de respuesta incorrecta para cualquier intento excepto el último intento. Si deja esto en blanco, se usará la retroalimentación 'Intento final incorrecto' en su lugar.",
+              "translatable": true
+            }
+          }
+        },
+        "_partlyCorrect": {
+          "type": "object",
+          "required": false,
+          "properties": {
+            "final": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Respuesta correcta final",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Retroalimentación de respuesta parcialmente correcta para el intento final. Si deja esto en blanco, se usará la retroalimentación 'Final incorrecta' en su lugar.",
+              "translatable": true
+            },
+            "notFinal": {
+              "type": "string",
+              "required": false,
+              "default": "",
+              "title": "Respuesta correcta parcial",
+              "inputType": "TextArea",
+              "validators": [],
+              "help": "Retroalimentación de respuesta parcialmente correctos para cualquier intento excepto el último intento. Si deja esto en blanco, se usará la retroalimentación 'Parcialmente correcta final' en su lugar.",
+              "translatable": true
+            }
+          }
+        }
+      }
+    },
+    "_buttons": {
+      "type": "object",
+      "title": "Botones",
+      "required": false,
+      "properties": {
+        "_submit": {
+          "type": "object",
+          "title": "Enviar",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "Enviar",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para el botón Enviar",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "Enviar",
+              "title": "Texto etiquta ARIA",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón de enviar",
+              "translatable": true
+            }
+          }
+        },
+        "_reset": {
+          "type": "object",
+          "title": "Reiniciar",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "Reiniciar",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para el botón de reinicio",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "Reiniciar",
+              "title": "Texto etiquta ARIA",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta Aria para el botón de reinicio",
+              "translatable": true
+            }
+          }
+        },
+        "_showCorrectAnswer": {
+          "type": "object",
+          "title": "Mostrar respuesta correcta",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "Mostrar respuesta correcta",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para mostrar la respuesta del modelo",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "Mostrar respuesta correcta",
+              "title": "Texto etiquta ARIA",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón Mostrar modelo de respuesta",
+              "translatable": true
+            }
+          }
+        },
+        "_hideCorrectAnswer": {
+          "type": "object",
+          "title": "Ocultar respuesta correcta",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "Ocultar respuesta correcta",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para ocultar la respuesta del modelo",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "Ocultar respuesta correcta",
+              "title": "Texto etiquta ARIA",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón de respuesta modelo oculto",
+              "translatable": true
+            }
+          }
+        },
+        "_showFeedback": {
+          "type": "object",
+          "title": "Mostrar retroalimentación",
+          "properties": {
+            "buttonText": {
+              "type": "string",
+              "required": false,
+              "default": "Mostrar retroalimentación",
+              "title": "Texto del botón",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Texto de la etiqueta del botón para mostrar comentarios",
+              "translatable": true
+            },
+            "ariaLabel": {
+              "type": "string",
+              "required": false,
+              "default": "Mostrar retroalimentación",
+              "title": "Texto etiquta ARIA",
+              "inputType": "QuestionButton",
+              "validators": [],
+              "help": "Etiqueta de Aria para el botón Mostrar comentarios",
+              "translatable": true
+            }
+          }
+        },
+        "remainingAttemptsText": {
+          "type": "string",
+          "required": false,
+          "default": "Intentos restantes",
+          "title": "Texto de intentos restantes",
+          "inputType": "QuestionButton",
+          "validators": [],
+          "help": "Se muestra cuando quedan intentos restantes",
+          "translatable": true
+        },
+        "remainingAttemptText": {
+          "type": "string",
+          "required": false,
+          "default": "Último intento",
+          "title": "Texto de intento final",
+          "inputType": "QuestionButton",
+          "validators": [],
+          "help": "Se muestra cuando queda un intento",
+          "translatable": true
+        }
+      }
+    }
+  }
+}
