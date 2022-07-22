@@ -134,7 +134,7 @@
       "type": "boolean",
       "required": false,
       "default": false,
-      "title": "Preguntas aleatorios",
+      "title": "Orden aleatorio",
       "inputType": "Checkbox",
       "validators": [],
       "help": "¿Ordenar las preguntas aleatoriamente?"
@@ -155,13 +155,13 @@
       "title": "Puntuación de la pregunta",
       "inputType": "Number",
       "validators": ["number"],
-      "help": "cuantos puntos vale esta pregunta"
+      "help": "Cuantos puntos vale esta pregunta"
     },
     "_allowsAnyCase": {
       "type": "boolean",
       "required": true,
       "default": false,
-      "title": "Permitir respuestas sin importar mayusculas",
+      "title": "Permitir respuestas sin importar mayúsculas",
       "inputType": "Checkbox",
       "validators": [],
       "help": "¿La verificación de la(s) respuesta(s) del usuario debe ser sensible a mayúsculas o minúsculas?"
