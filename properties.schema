@@ -95,7 +95,7 @@
       "title": "intentos",
       "inputType": "Number",
       "validators": ["required", "number"],
-      "help": "Cuántos intentos tiene permitido el alumno"
+      "help": "Cuántos intentos tiene permitido el estudiante"
     },
     "_canShowModelAnswer": {
       "type": "boolean",
