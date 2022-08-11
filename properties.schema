@@ -110,16 +110,18 @@
       "type": "boolean",
       "required": true,
       "default": true,
-      "title": "Mostrar retroalimentación",
+      "title": "Mostrar realimentación",
       "inputType": "Checkbox",
-      "validators": []
+      "validators": [],
+      "help": "Muestra una realimentación dependiendo de la respuesta del estudiante."
     },
     "_canShowMarking": {
       "type": "boolean",
       "default": true,
       "title": "Mostrar respuesta seleccionada",
       "inputType": "Checkbox",
-      "validators": []
+      "validators": [],
+      "help": "Mostrar la respuesta seleccionada por el estudiante."
     },
     "_shouldDisplayAttempts": {
       "type": "boolean",
@@ -146,7 +148,7 @@
       "title": "Guardar interacción",
       "inputType": "Checkbox",
       "validators": [],
-      "help": "Si está deshabilitado, el registro de las respuestas del usuario a esta pregunta en cmi.interactions en el LMS se deshabilitará solo para este componente."
+      "help": "Si está deshabilitado, el registro de las respuestas del estudiante a esta pregunta en cmi.interactions en el LMS se deshabilitará solo para este componente."
     },
     "_questionWeight": {
       "type": "number",
@@ -164,7 +166,7 @@
       "title": "Permitir respuestas sin importar mayúsculas",
       "inputType": "Checkbox",
       "validators": [],
-      "help": "¿La verificación de la(s) respuesta(s) del usuario debe ser sensible a mayúsculas o minúsculas?"
+      "help": "¿La verificación de la(s) respuesta(s) del estudiante debe ser sensible a mayúsculas o minúsculas?"
     },
     "_allowsPunctuation": {
       "type": "boolean",
@@ -172,7 +174,8 @@
       "default": false,
       "title": "Permitir signos de puntuación",
       "inputType": "Checkbox",
-      "validators": []
+      "validators": [],
+      "help": "¿La verificación de la(s) respuesta(s) del estudiante debe permitir signos de puntuación?"
     },
     "_feedback": {
       "type": "object",
@@ -365,26 +368,26 @@
         },
         "_showFeedback": {
           "type": "object",
-          "title": "Mostrar retroalimentación",
+          "title": "Mostrar realimentación",
           "properties": {
             "buttonText": {
               "type": "string",
               "required": false,
-              "default": "Mostrar retroalimentación",
+              "default": "Mostrar realimentación",
               "title": "Texto del botón",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Texto de la etiqueta del botón para mostrar comentarios",
+              "help": "Texto de la etiqueta del botón para mostrar realimentación.",
               "translatable": true
             },
             "ariaLabel": {
               "type": "string",
               "required": false,
-              "default": "Mostrar retroalimentación",
+              "default": "Mostrar realimentación",
               "title": "Texto etiquta ARIA",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Etiqueta de Aria para el botón Mostrar comentarios",
+              "help": "Etiqueta de Aria para el botón Mostrar realimentación",
               "translatable": true
             }
           }
