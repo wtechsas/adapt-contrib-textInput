@@ -290,26 +290,26 @@
         },
         "_reset": {
           "type": "object",
-          "title": "Reiniciar",
+          "title": "Reintentar",
           "properties": {
             "buttonText": {
               "type": "string",
               "required": false,
-              "default": "Reiniciar",
+              "default": "Reintentar",
               "title": "Texto del botón",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Texto de la etiqueta del botón para el botón de reinicio",
+              "help": "Texto de la etiqueta del botón para el botón de reintentar",
               "translatable": true
             },
             "ariaLabel": {
               "type": "string",
               "required": false,
-              "default": "Reiniciar",
+              "default": "Reintentar",
               "title": "Texto etiquta ARIA",
               "inputType": "QuestionButton",
               "validators": [],
-              "help": "Etiqueta Aria para el botón de reinicio",
+              "help": "Etiqueta Aria para el botón de reintentar",
               "translatable": true
             }
           }
